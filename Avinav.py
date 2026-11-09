@@ -775,7 +775,7 @@ def main():
             python_info()
 
         elif choice == "0":
-            print("\nThank you for using AVINAV!")
+            print("\nThank you for using Tool!")
             break
 
         else:
@@ -787,5 +787,5 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("\nAVINAV closed.")
+        print("\nTOOL closed.")
   
