@@ -1,3 +1,6 @@
+cd ~/Avinav
+
+cat > run.py <<'PY'
 import platform
 import subprocess
 import sys
@@ -10,7 +13,7 @@ def main():
         subprocess.run(
             ["git", "pull", "--quiet"],
             timeout=30,
-            check=False,
+            check=False
         )
         print(" • -> UPDATE CHECK COMPLETED")
     except Exception:
@@ -29,3 +32,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+PY
