@@ -1,9 +1,7 @@
-cd ~/Avinav
-
-cat > run.py <<'PY'
 import platform
 import subprocess
 import sys
+
 
 def main():
     print(" • -> CHECKING FOR UPDATES")
@@ -12,7 +10,7 @@ def main():
         subprocess.run(
             ["git", "pull", "--quiet"],
             timeout=30,
-            check=False
+            check=False,
         )
         print(" • -> UPDATE CHECK COMPLETED")
     except Exception:
@@ -28,6 +26,6 @@ def main():
     from data.Avinav import main as start_app
     start_app()
 
+
 if __name__ == "__main__":
     main()
-PY
