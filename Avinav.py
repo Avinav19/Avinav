@@ -1,4 +1,3 @@
-
 import os
 import sys
 import time
@@ -12,7 +11,7 @@ import re
 from pathlib import Path
 from datetime import datetime
 
-VERSION = "3.0"
+VERSION = "1.0"
 
 
 # =============== COLORS ===============
