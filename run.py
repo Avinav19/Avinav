@@ -1,35 +1,18 @@
-cd ~/Avinav
-
-cat > run.py <<'PY'
-import platform
-import subprocess
 import sys
+from pathlib import Path
 
+PROJECT_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(PROJECT_DIR))
 
-def main():
-    print(" • -> CHECKING FOR UPDATES")
-
-    try:
-        subprocess.run(
-            ["git", "pull", "--quiet"],
-            timeout=30,
-            check=False
-        )
-        print(" • -> UPDATE CHECK COMPLETED")
-    except Exception:
-        print(" • -> UPDATE CHECK SKIPPED")
-
-    if platform.architecture()[0] != "64bit":
-        print(" • -> 64BIT REQUIRED")
-        sys.exit(1)
-
-    print(" • -> 64BIT DETECTED")
-    print(" • -> STARTING AVINAV")
-
-    from data.Avinav import main as start_app
-    start_app()
-
-
-if __name__ == "__main__":
+try:
+    from data.Avinav import main
     main()
-PY
+
+except ImportError as error:
+    print("AVINAV could not load.")
+    print("Check that data/Avinav.py exists.")
+    print("Details:", error)
+
+except KeyboardInterrupt:
+    print("\nAVINAV closed.")
+    
